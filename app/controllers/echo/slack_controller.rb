@@ -1,4 +1,6 @@
 class Echo::SlackController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def handle
     Slack.configure do |config|
       config.token = ENV["SLACK_SECRET"]
@@ -19,14 +21,14 @@ class Echo::SlackController < ApplicationController
     #
     #   client.on :message do |data|
     #     render json: {
-    #       "version": "1.0",
-    #       "sessionAttributes": attributes,
-    #       "response": {
-    #         "outputSpeech": {
-    #           "type": "PlainText",
-    #           "text": data["text"]
+    #       "version" => "1.0",
+    #       "sessionAttributes" => attributes,
+    #       "response" => {
+    #         "outputSpeech" => {
+    #           "type" => "PlainText",
+    #           "text" => data["text"]
     #         },
-    #         "shouldEndSession": false
+    #         "shouldEndSession" => false
     #       }
     #     }
     #   end
