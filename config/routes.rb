@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :echo do
     scope :slack do
-      get '/', to: 'slack#handle'
+      post '/', to: 'slack#handle'
     end
   end
 
