@@ -37,6 +37,9 @@ class Echo::SlackController < ApplicationController
     request = params["request"]
     if request["type"] == "IntentRequest"
       handleIntent(Slack, request["intent"])
+      message = "sent message"
+    else
+      message = "thanks for using slack app for echo"
     end
 
     render json: {
@@ -44,23 +47,13 @@ class Echo::SlackController < ApplicationController
       "sessionAttributes": attributes,
       "response": {
         "outputSpeech": {
-          "type": "string",
-          "text": "string"
-        },
-        "card": {
-          "type": "string",
-          "title": "string",
-          "content": "string"
-        },
-        "reprompt": {
-          "outputSpeech": {
-            "type": "string",
-            "text": "string"
-          }
+          "type": "PlainText",
+          "text": message
         },
         "shouldEndSession": false
-      }
+      },
     }
+
   end
 
 
