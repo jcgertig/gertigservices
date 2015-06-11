@@ -1,0 +1,2 @@
+module Echo::SlackHelper
+end
