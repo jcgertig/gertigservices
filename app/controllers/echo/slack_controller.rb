@@ -59,13 +59,13 @@ class Echo::SlackController < ApplicationController
 
   private
 
-    def handleIntent(Slack, intent)
+    def handleIntent(slack, intent)
       name = intent["name"]
       message = intent["slots"]["message"]["value"]
       if name == "SendMessage"
-        Slack.chat_postMessage text: message
+        slack.chat_postMessage text: message
       elsif name == "SendMessageToRoom"
-        Slack.chat_postMessage channel: intent["slots"]["channelName"]["value"], text: message
+        slack.chat_postMessage channel: intent["slots"]["channelName"]["value"], text: message
       end
     end
 end
