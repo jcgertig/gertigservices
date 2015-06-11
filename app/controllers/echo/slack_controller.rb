@@ -43,14 +43,14 @@ class Echo::SlackController < ApplicationController
     end
 
     render json: {
-      "version": "1.0",
-      "sessionAttributes": attributes,
-      "response": {
-        "outputSpeech": {
-          "type": "PlainText",
-          "text": message
+      "version" => "1.0",
+      "sessionAttributes" => attributes,
+      "response" => {
+        "outputSpeech" => {
+          "type" => "PlainText",
+          "text" => message
         },
-        "shouldEndSession": false
+        "shouldEndSession" => false
       },
     }
 
