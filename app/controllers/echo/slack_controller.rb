@@ -4,35 +4,35 @@ class Echo::SlackController < ApplicationController
       config.token = ENV["SLACK_SECRET"]
     end
 
-    listening = params["session"]["attributes"]["listening"]
+    # listening = params["session"]["attributes"]["listening"]
 
-    attributes = { "listening": listening }
+    attributes = {  }
 
-    if listening.nil? || listening == false
-      attributes["listening"] = true
-
-      client = Slack.realtime
-
-      client.on :hello do
-        logger.info 'Successfully connected.'
-      end
-
-      client.on :message do |data|
-        render json: {
-          "version": "1.0",
-          "sessionAttributes": attributes,
-          "response": {
-            "outputSpeech": {
-              "type": "PlainText",
-              "text": data["text"]
-            },
-            "shouldEndSession": false
-          }
-        }
-      end
-
-      client.start
-    end
+    # if listening.nil? || listening == false
+    #   attributes["listening"] = true
+    #
+    #   client = Slack.realtime
+    #
+    #   client.on :hello do
+    #     logger.info 'Successfully connected.'
+    #   end
+    #
+    #   client.on :message do |data|
+    #     render json: {
+    #       "version": "1.0",
+    #       "sessionAttributes": attributes,
+    #       "response": {
+    #         "outputSpeech": {
+    #           "type": "PlainText",
+    #           "text": data["text"]
+    #         },
+    #         "shouldEndSession": false
+    #       }
+    #     }
+    #   end
+    #
+    #   client.start
+    # end
 
     request = params["request"]
     if request["type"] == "IntentRequest"
