@@ -1,0 +1,38 @@
+{
+  "intents": [
+    {
+      "intent": "SendMessage",
+      "slots": [
+        {
+          "name": "message",
+          "type": "LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "SendMessageToRoom",
+      "slots": [
+        {
+          "name": "roomName",
+          "type": "LITERAL"
+        },
+        {
+          "name": "message",
+          "type": "LITERAL"
+        }
+      ]
+    }
+  ]
+}
+
+// natural langage ex
+
+SendMessage  post {message|message}
+SendMessage  send {message|message}
+SendMessageToRoom  post in {random|roomName} {message|message}
+SendMessageToRoom  post to {random|roomName} {message|message}
+SendMessageToRoom  post in {random|roomName} message {message|message}
+SendMessageToRoom  post to {random|roomName} message {message|message}
+SendMessageToRoom  send message {message|message} to {random|roomName}
+SendMessageToRoom  post message {message|message} in {random|roomName}
+SendMessageToRoom  post {message|message} in {random|roomName}
