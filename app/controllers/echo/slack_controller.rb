@@ -65,9 +65,9 @@ class Echo::SlackController < ApplicationController
       name = intent["name"]
       message = intent["slots"]["message"]["value"]
       if name == "SendMessage"
-        slack.chat_postMessage channel: 'general', text: message
+        slack.chat_postMessage channel: '#general', text: message
       elsif name == "SendMessageToRoom"
-        slack.chat_postMessage channel: intent["slots"]["channelName"]["value"], text: message
+        slack.chat_postMessage channel: "##{intent["slots"]["channelName"]["value"]}", text: message
       end
     end
 end

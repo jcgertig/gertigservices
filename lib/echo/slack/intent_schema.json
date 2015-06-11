@@ -13,7 +13,7 @@
       "intent": "SendMessageToRoom",
       "slots": [
         {
-          "name": "roomName",
+          "name": "channelName",
           "type": "LITERAL"
         },
         {
@@ -27,12 +27,10 @@
 
 // natural langage ex
 
-SendMessage  post {message|message}
-SendMessage  send {message|message}
-SendMessageToRoom  post in {random|roomName} {message|message}
-SendMessageToRoom  post to {random|roomName} {message|message}
-SendMessageToRoom  post in {random|roomName} message {message|message}
-SendMessageToRoom  post to {random|roomName} message {message|message}
-SendMessageToRoom  send message {message|message} to {random|roomName}
-SendMessageToRoom  post message {message|message} in {random|roomName}
-SendMessageToRoom  post {message|message} in {random|roomName}
+SendMessage  post {giant dick|message}
+SendMessageToRoom  post to {random|channelName} {giant dick|message}
+SendMessageToRoom  post to {general|channelName} {giant dick|message}
+SendMessageToRoom  post to {random|channelName} {wow it really works|message}
+SendMessageToRoom  post to {general|channelName} {wow it really works|message}
+SendMessageToRoom  post to {random|channelName} {not really it is very limited|message}
+SendMessageToRoom  post to {general|channelName} {not really it is very limited|message}
